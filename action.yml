@@ -1,34 +1,22 @@
-name: Bump docker image version on a remote host
-author: Matthias Meyer <github@thematchless.de>
-description: A GitHub Action that deploys the newest version of an docker image on a remote server via ssh
+name: Simple docker-compose via ssh
+author: AnvilFox
+description: Docker prune/pull/compose via ssh
 inputs:
-  remote_docker_host:
-    description: Remote Docker host (user@host)
+  docker_host:
+    description: docker user@host_ip
     required: true
-  remote_docker_port:
-    description: Remote Docker ssh port (22)
-    required: false
+  docker_port:
+    description: ssh port
     default: '22'
-  service_name:
-    description: The name of the service defined in the docker-compose.yml
-    required: true
-  ssh_public_key:
-    description: Remote Docker SSH public key
-    required: true
-  ssh_private_key:
-    description: SSH private key used to connect to the docker host
-    required: true
-  args:
-    description: Deployment command args.
-    required: true
-  deploy_path:
-    description: The path to your docker-compose.yml on the remote docker host
     required: false
-  stack_file_name:
-    description: Docker stack file used. Default is docker-compose.yml
-    required: false
-  pull_images_first:
-    description: Pull docker images before deploying.
+  ssh_pub:
+    description: Remote SSH public
+    required: true
+  ssh_priv:
+    description: Remote SSH private
+    required: true
+  compose_path:
+    description: docker-compose.yml path on remote
     required: false
 
 runs:
@@ -36,5 +24,5 @@ runs:
   image: Dockerfile
 
 branding:
-  icon: send
-  color: green
+  icon: terminal
+  color: blue
