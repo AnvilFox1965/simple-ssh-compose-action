@@ -22,19 +22,6 @@ inputs:
     description: docker-compose.yml file path on remote
     required: false
 
-
-runs:
-  using: 'composite'
-  steps:
-    - run: ${{ github.action_path }}/entrypoint.sh
-      shell: bash
-      env:
-        INPUT_SSH_HOST_KEY: ${{ inputs.ssh_host_key }}
-        INPUT_SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
-        INPUT_DOCKER_HOST: ${{ inputs.docker_host }}
-        INPUT_DOCKER_USER: ${{ inputs.docker_user }}
-        INPUT_DOCKER_COMMAND: ${{ inputs.docker_command }}
-
 runs:
   using: docker
   image: Dockerfile
