@@ -21,5 +21,5 @@ jobs:
         uses: docker/build-push-action@v2.3.0
         with:
           push: true
-          tags: ghcr.io/anvilfox1965/simple-ssh-compose-action:latest, ghcr.io/anvilfox1965/simple-ssh-compose-action:${{ github.run_number }}
+          tags: ghcr.io/anvilfox1965/simple-ssh-compose-action:latest, ghcr.io/anvilfox1965/simple-ssh-compose-action:v${{ github.run_number }}
           # tags: ghcr.io/${{ github.repository }}:latest, ghcr.io/${{ github.repository }}:${{ github.run_number }}
